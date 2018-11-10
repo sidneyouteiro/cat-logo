@@ -49,9 +49,9 @@ artigo* cria_artigo(autor* autores){
 }
 
 autor* cria_autor(autor*pri){
-  while((pri->prox_autor)!=N
-  autor* autores;
-  if((autores=(autor*)malloc(sizeof(autor)))==0){
+  while((pri->prox_autor)!=N //completa esse null e bota o ) depois dele
+  autor* autores; // ta faltando algo antes do autor
+  if((autores=(autor*)malloc(sizeof(autor)))==0){  // autores nao declarado
     printf("memoria insuficiente\n");
     return NULL;
   }
@@ -84,10 +84,10 @@ void verifica(autor* prim){
     aut=aut->prox_autor;
     if(aut==NULL){
       printf("Autor nao existe");
-      return NULL;
+      return NULL;  //ta reclamando que função void nao tem retorno, mas é um warning
     }
   }
-  aut->artigo=cria_artigo(autores);
+  aut->artigo=cria_artigo(autores); //autores nao declarado
 }
 
 
@@ -96,7 +96,7 @@ int main(){
   autor *autor_aux;
   artigo *artigo_aux;
   autor *primautor;
-  primautor=cria_autor();
+  primautor=cria_autor(); //tu escreveu essa função com argumentos, mas tu ta rodando ela sem 
   while (1) {
     printf("Menu\n1-Autor\n2-Artigo\n3-Fim\n");
     scanf("%d",&menu);
